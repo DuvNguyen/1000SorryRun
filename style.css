@@ -4,9 +4,28 @@
     background-color: skyblue; /* Màu nền nếu chưa load ảnh */
 }
 
-/* ❌ XÓA phần ép màn hình nằm ngang bằng CSS - Dùng JavaScript thay thế */
+/* 📌 Ép màn hình nằm ngang khi chơi trên điện thoại */
+@media screen and (max-width: 736px) {
+    body {
+        transform: rotate(-90deg);
+        transform-origin: center center;
+        position: fixed;
+        width: 100vh;
+        height: 100vw;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+    }
 
-/* Căn giữa game trên mọi thiết bị */
+    /* Đảm bảo canvas nằm gọn trong màn hình */
+    canvas {
+        width: 100vh;  /* Full theo chiều ngang sau khi xoay */
+        height: 100vw; /* Full theo chiều dọc */
+        max-width: 100vh;
+        max-height: 100vw;
+    }
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -15,13 +34,15 @@ body, html {
     justify-content: center;
     align-items: center;
     background-color: black;
-    width: 100vw;
     height: 100vh;
+    width: 100vw;
 }
 
-/* 📌 Chỉnh canvas để luôn full màn hình */
+/* 📌 Chỉnh canvas để phù hợp với mọi màn hình */
 canvas {
-    width: 100vw;  /* Chiếm toàn bộ chiều rộng màn hình */
-    height: 100vh; /* Chiếm toàn bộ chiều cao màn hình */
     display: block;
+    width: 100vw;  /* Chiếm toàn bộ chiều rộng màn hình */
+    height: auto;   /* Tự điều chỉnh chiều cao theo tỉ lệ */
+    max-height: 100vh; /* Không bị tràn quá màn hình */
+    touch-action: none; /* Tránh zoom và cuộn trên màn hình cảm ứng */
 }
