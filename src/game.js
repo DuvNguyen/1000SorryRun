@@ -31,7 +31,7 @@ let gameOver = false;
 
 // Biến tần suất xuất hiện bẫy
 let obstacleSpawnRate = 3000; // tần suất ban đầu là 3 giây một phát
-const minSpawnRate = 1500; // tần suất nhiều nhất là 1 giây một phát
+const minSpawnRate = 2500; // tần suất nhiều nhất là 1 giây một phát
 
 // Biến tốc độ chạy của bẫy
 let obstacleSpeed = 3;
