@@ -30,12 +30,12 @@ obstacleImage.src = "assets/Idle.png";
 let gameOver = false;
 
 // Biến tần suất xuất hiện bẫy
-let obstacleSpawnRate = 3500; // tần suất ban đầu là 3 giây một phát
-const minSpawnRate = 2300; // tần suất nhiều nhất là 1 giây một phát
+let obstacleSpawnRate = 3000; // tần suất ban đầu là 3 giây một phát
+const minSpawnRate = 1500; // tần suất nhiều nhất là 1 giây một phát
 
 // Biến tốc độ chạy của bẫy
 let obstacleSpeed = 3;
-const maxObstacleSpeed = 7;
+const maxObstacleSpeed = 5;
 
 // Biến thắng game
 let gameWon = false;
@@ -72,7 +72,7 @@ const bgSpeed = 2;
 
 // Điều chỉnh tốc độ animation
 let frameIndex = 0;   
-let frameDelay = 2;  
+let frameDelay = 10;  
 let frameCounter = 0; 
 
 // Mảng chứa chướng ngại vật
@@ -115,7 +115,7 @@ function updateScore(){
 
 // Hàm cập nhật tốc độ chướng ngại vật dựa trên điểm số
 function updateObstacleSpeed() {
-    obstacleSpeed = 3 + Math.floor(score / 100); // Cứ mỗi 10 điểm, tốc độ tăng 1 đơn vị
+    obstacleSpeed = 3 + Math.floor(score / 50); // Cứ mỗi 10 điểm, tốc độ tăng 1 đơn vị
 }
 
 
@@ -463,7 +463,7 @@ function drawStoryText() {
         "Như chịu hậu quả, chàng bị biến thành con ếch",
         "bị đem đến nơi xa tít mù khơi",
         "Bạn hãy giúp cậu ấy vượt ngàn chông gai.",
-        "Bằng cách vượt 1000 điểm để về bên công chúa",
+        "Bằng cách vượt 500 điểm để về bên công chúa",
         "và dành một lời xin lỗi chân thành nhất...",
         "Liệu anh ấy có thể vượt qua được hết chông gai?",
         "Điều đó là nhờ bạn! "
