@@ -30,8 +30,8 @@ obstacleImage.src = "assets/Idle.png";
 let gameOver = false;
 
 // Biến tần suất xuất hiện bẫy
-let obstacleSpawnRate = 5000; // tần suất ban đầu là 3 giây một phát
-const minSpawnRate = 3000; // tần suất nhiều nhất là 1 giây một phát
+let obstacleSpawnRate = 3500; // tần suất ban đầu là 3 giây một phát
+const minSpawnRate = 2300; // tần suất nhiều nhất là 1 giây một phát
 
 // Biến tốc độ chạy của bẫy
 let obstacleSpeed = 3;
