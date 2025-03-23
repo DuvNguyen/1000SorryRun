@@ -4,7 +4,7 @@
     background-color: skyblue; /* Màu nền nếu chưa load ảnh */
 }
 
-/* 📌 Ép màn hình nằm ngang khi chơi trên điện thoại */
+/* 📌 Ép màn hình nằm ngang khi chơi trên điện thoại
 @media screen and (max-width: 736px) {
     body {
         transform: rotate(-90deg);
@@ -24,7 +24,7 @@
         max-width: 100vh;
         max-height: 100vw;
     }
-}
+} */
 
 body, html {
     margin: 0;
