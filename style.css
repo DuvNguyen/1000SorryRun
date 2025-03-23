@@ -1,0 +1,39 @@
+/* Chỉ để canvas hiển thị bình thường */
+#gameCanvas {
+    display: block;
+    background-color: skyblue; /* Màu nền nếu chưa load ảnh */
+}
+
+/* 📌 Ép màn hình nằm ngang khi chơi trên điện thoại */
+@media screen and (max-width: 736px) {
+    body {
+        transform: rotate(-90deg);
+        transform-origin: center center;
+        width: 100vh;
+        height: 100vw;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* 📌 Chỉnh canvas để vừa với iPhone 11 ngang */
+canvas {
+    width: 100vw;  /* Chiếm toàn bộ chiều rộng màn hình */
+    height: auto;   /* Tự điều chỉnh chiều cao theo tỉ lệ */
+    max-height: 100vh; /* Không bị tràn quá màn hình */
+    display: block;
+}
