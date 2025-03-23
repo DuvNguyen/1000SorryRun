@@ -175,7 +175,7 @@ function showWinMessage() {
 // Cập nhật game
 function update() {
 
-    if (score >= 1000 && !gameWon) {
+    if (score >= 500 && !gameWon) {
         gameWon = true;
         gameOver = true; // Dừng game chính
         princess.visible = true;
