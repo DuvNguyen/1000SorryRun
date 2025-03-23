@@ -30,8 +30,8 @@ obstacleImage.src = "assets/Idle.png";
 let gameOver = false;
 
 // Biến tần suất xuất hiện bẫy
-let obstacleSpawnRate = 3000; // tần suất ban đầu là 3 giây một phát
-const minSpawnRate = 2500; // tần suất nhiều nhất là 1 giây một phát
+let obstacleSpawnRate = 5000; // tần suất ban đầu là 3 giây một phát
+const minSpawnRate = 3000; // tần suất nhiều nhất là 1 giây một phát
 
 // Biến tốc độ chạy của bẫy
 let obstacleSpeed = 3;
@@ -115,7 +115,7 @@ function updateScore(){
 
 // Hàm cập nhật tốc độ chướng ngại vật dựa trên điểm số
 function updateObstacleSpeed() {
-    obstacleSpeed = 3 + Math.floor(score / 200); // Cứ mỗi 10 điểm, tốc độ tăng 1 đơn vị
+    obstacleSpeed = 3 + Math.floor(score / 100); // Cứ mỗi 10 điểm, tốc độ tăng 1 đơn vị
 }
 
 
