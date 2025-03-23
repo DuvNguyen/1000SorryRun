@@ -72,7 +72,7 @@ const bgSpeed = 2;
 
 // Điều chỉnh tốc độ animation
 let frameIndex = 0;   
-let frameDelay = 12;  
+let frameDelay = 2;  
 let frameCounter = 0; 
 
 // Mảng chứa chướng ngại vật
