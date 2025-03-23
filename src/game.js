@@ -51,7 +51,7 @@ const player = {
     speed: 5,
     jumping: false,
     velocityY: 0,
-    gravity: 0.5
+    gravity: 0.4
 };
 
 let princess = {
@@ -115,7 +115,7 @@ function updateScore(){
 
 // Hàm cập nhật tốc độ chướng ngại vật dựa trên điểm số
 function updateObstacleSpeed() {
-    obstacleSpeed = 3 + Math.floor(score / 300); // Cứ mỗi 10 điểm, tốc độ tăng 1 đơn vị
+    obstacleSpeed = 3 + Math.floor(score / 100); // Cứ mỗi 10 điểm, tốc độ tăng 1 đơn vị
 }
 
 

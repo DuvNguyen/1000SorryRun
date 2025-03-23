@@ -5,6 +5,7 @@
 }
 
 
+/*hàm ép xoay ngang*/
 @media screen and (max-width: 736px) {
     body {
         transform: rotate(-90deg);
