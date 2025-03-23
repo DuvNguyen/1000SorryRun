@@ -495,6 +495,16 @@ function showGameMenu() {
     drawStoryText();
 }
 
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
+// Gọi khi trang tải hoặc thay đổi kích thước màn hình
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas(); // Chạy ngay khi game khởi động
+
+
 // Hàm bắt đầu game
 function startGame() {
     if (!gameStarted) {
