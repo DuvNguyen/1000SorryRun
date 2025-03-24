@@ -22,6 +22,9 @@ playerImage.src = "assets/run.png";
 let princessImg = new Image();
 princessImg.src = "assets/princess.png";
 
+// tạo loop id
+let gameLoopId;
+
 // Load chướng ngại vật
 const obstacleImage = new Image();
 obstacleImage.src = "assets/Idle.png";
@@ -118,6 +121,17 @@ function updateObstacleSpeed() {
     obstacleSpeed = 3 + Math.floor(score / 50); // Cứ mỗi 10 điểm, tốc độ tăng 1 đơn vị
 }
 
+// xử lý restart
+function handleRestart(event) {
+    if (event.type === "keydown" && event.code === "Space") {
+        restartGame();
+    } else if (event.type === "touchstart") {
+        restartGame();
+    }
+}
+
+
+// hàm 
 
 // Kiểm tra va chạm
 // 📌 Điều chỉnh hitbox nhân vật và chướng ngại vật
@@ -169,12 +183,17 @@ function showWinMessage() {
     message.forEach((line, index) => {
         ctx.fillText(line, x, y + index * 20);
     });
+
+    // Lắng nghe restart game
+    document.addEventListener("keydown", handleRestart, { once: true });
+    canvas.addEventListener("touchstart", handleRestart, { once: true });
 }
 
 
 // Cập nhật game
 function update() {
 
+    // sử lý logic thắng game
     if (score >= 500 && !gameWon) {
         gameWon = true;
         gameOver = true; // Dừng game chính
@@ -331,15 +350,34 @@ function handleTouch() {
 // Restart game
 function restartGame() {
     gameOver = false;
+    gameWon = false;
+    
+    // dừng vòng lặp cũ
+    cancelAnimationFrame(gameLoopId);
+
+    // đưa người chơi về vị trí ban đầu
+    player.x = 100;
     player.y = canvas.height - 40;
     player.jumping = false;
     player.velocityY = 0;
     player.frameX = 0;
-    obstacles.length = 0; // Xóa hết chướng ngại vật
-    score = 0; // Cập nhật lại điểm
-    obstacleSpawnRate = 3000;   
-    spawnObstacle(); // Bắt đầu lại chướng ngại vật
+    player.speed = 3;
+
+    // Xóa hết chướng ngại vật
+    obstacles.length = 0; 
+    // Cập nhật lại điểm và tần suất bẫy
+    score = 0; 
+    obstacleSpawnRate = 3000; 
+    obstacleSpeed = 3;  
+
+    // ẩn công chúa cho đến khi đạt lại điểm số
+    princess.visible = false;
+
+    // Bắt đầu lại chướng ngại vật và cập nhật điểm
+    spawnObstacle(); 
     updateScore();
+    updateObstacleSpeed();
+
     gameLoop(); // Chạy lại game
 }
 
@@ -427,24 +465,10 @@ function winGameLoop() {
     } else {
         showWinMessage(); // Hiển thị thông báo thắng
     }
+    
 }
 
-// // Hàm game loop
-// function gameLoop() {
-//     if (!gameOver) {
-//         update();
-//         draw();
-//         requestAnimationFrame(gameLoop);
-//     }
-// }
 
-
-// // Bắt đầu game
-// updateScore();
-// bgImage.onload = function() {
-//     spawnObstacle();
-//     gameLoop();
-// };
 
 // Biến kiểm tra trạng thái game
 let gameStarted = false;
@@ -513,7 +537,7 @@ function gameLoop() {
     if (!gameOver) {
         update();
         draw();
-        requestAnimationFrame(gameLoop);
+        gameLoopId = requestAnimationFrame(gameLoop);// lấy id
     }
 }
 
